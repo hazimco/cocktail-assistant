@@ -11,7 +11,7 @@ const SearchResults = ({ data }: Data) => {
     return;
   }
 
-  return html`<div>
+  return html`<div class="container">
       ${drinks.map(
         (drink) => html`<result-item .drink=${drink}></result-item>`
       )}
@@ -23,4 +23,10 @@ customElements.define("search-results", component(SearchResults));
 
 // ################### styling ##############################
 
-const style = html`<style></style>`;
+const style = html`<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+</style>`;
