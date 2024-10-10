@@ -13,7 +13,7 @@ const SearchInput = () => {
   const handleInput = (event: Event) => {
     const input = event.target as HTMLInputElement;
 
-    setText(input.value);
+    setText(input.value.trim()); //trimming so that leading and trailing white spaces are not sent in fetch request
   };
 
   return html` <form @submit=${handleSubmit} class="container">
