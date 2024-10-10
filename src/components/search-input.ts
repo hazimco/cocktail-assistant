@@ -1,13 +1,13 @@
 import { html, component, useState } from "haunted";
 
-const SearchInput = () => {
+const SearchInput = ({ setData }) => {
   const [text, setText] = useState("");
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
 
     const cocktails = await fetchCocktails(text);
-    console.log(cocktails);
+    setData(cocktails);
   };
 
   const handleInput = (event: Event) => {

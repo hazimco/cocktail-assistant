@@ -1,9 +1,11 @@
-import { html, component } from "haunted";
+import { html, component, useState } from "haunted";
 import "./components/search-input";
 
 const App = () => {
+  const [data, setData] = useState();
+
   return html` <div>
-    <search-input></search-input>
+    <search-input .setData=${setData}></search-input>
   </div>`;
 };
 
