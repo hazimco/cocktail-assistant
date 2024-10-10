@@ -18,7 +18,7 @@ const SearchInput = () => {
 
   return html` <form @submit=${handleSubmit} class="container">
       <input placeholder="Search for a drink..." @input=${handleInput} />
-      <button>Search</button>
+      <button ?disabled=${!text}>Search</button>
     </form>
     ${style}`;
 };
