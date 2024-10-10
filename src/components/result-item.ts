@@ -1,6 +1,11 @@
 import { html, component } from "haunted";
+import { Drink } from "../types/types";
 
-const ResultItem = ({ drink }) => {
+interface Props {
+  drink: Drink;
+}
+
+const ResultItem = ({ drink }: Props) => {
   return html`<div>${drink.strDrink}</div>
     ${style}`;
 };

@@ -1,12 +1,18 @@
 import { html, component, useState } from "haunted";
+import { Data } from "../types/types";
+import { StateUpdater } from "../types/hauntedTyped";
 
-const SearchInput = ({ setData }) => {
+interface Props {
+  setData: StateUpdater<Data | undefined>;
+}
+
+const SearchInput = ({ setData }: Props) => {
   const [text, setText] = useState("");
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
 
-    const cocktails = await fetchCocktails(text);
+    const cocktails = await fetchCocktails<Data>(text);
     setData(cocktails);
   };
 
@@ -40,13 +46,13 @@ const style = html` <style>
 
 const BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
-const fetchCocktails = async (searchText: string) => {
+const fetchCocktails = async <T>(searchText: string) => {
   try {
     const response = await fetch(`${BASE_URL}${searchText}`);
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
-    return response.json();
+    return response.json() as T;
   } catch (error) {
     console.log((error as Error).message);
   }

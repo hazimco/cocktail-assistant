@@ -1,7 +1,8 @@
 import { html, component } from "haunted";
 import "../components/result-item";
+import { Data } from "../types/types";
 
-const SearchResults = ({ data }) => {
+const SearchResults = ({ data }: Data) => {
   if (!data) return;
 
   const { drinks } = data;
