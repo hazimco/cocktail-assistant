@@ -9,8 +9,9 @@ const App = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
 
   const handleSetIngredients = (newIngredients: string[]) => {
-    const updatedIngredients = [...ingredients, ...newIngredients];
-    setIngredients(updatedIngredients);
+    const updatedIngredients = new Set([...ingredients, ...newIngredients]);
+
+    setIngredients([...updatedIngredients]);
   };
 
   return html` <div>
