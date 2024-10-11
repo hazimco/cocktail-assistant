@@ -48,6 +48,7 @@ const style = html`<style>
     display: flex;
     border: 1px solid gray;
     border-radius: 10px;
+    background-color: #fff3fa;
     padding: 10px;
     justify-content: space-between;
     gap: 20px;
@@ -58,6 +59,8 @@ const style = html`<style>
   }
   img {
     height: 100px;
+    width: 100px;
+    border-radius: 100%;
   }
   h2,
   p {

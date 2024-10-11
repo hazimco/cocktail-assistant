@@ -47,8 +47,25 @@ const style = html` <style>
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    font-family: sans-serif;
+    font-weight: 100;
   }
   .column-container {
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+    background-color: #f7fdff;
+    padding: 10px;
+    max-height: 90vh;
     display: flex;
+    gap: 20px;
+  }
+  search-results {
+    flex: 4;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  shopping-list {
+    flex: 2;
   }
 </style>`;
