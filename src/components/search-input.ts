@@ -42,8 +42,10 @@ customElements.define("search-input", component(SearchInput));
 const style = html` <style>
   .container {
     display: flex;
+    justify-content: center;
   }
   input {
+    width: 50%;
     padding: 6px;
   }
 </style>`;

@@ -16,7 +16,7 @@ const App = () => {
     setIngredients([...updatedIngredients]);
   };
 
-  return html` <div>
+  return html` <div class="container">
       <search-input
         .setData=${setData}
         .setToasterMessage=${setToasterMessage}
@@ -39,6 +39,15 @@ customElements.define("my-app", component(App));
 // ################### styling ##############################
 
 const style = html` <style>
+  .container {
+    max-width: 1000px;
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   .column-container {
     display: flex;
   }
