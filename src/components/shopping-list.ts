@@ -1,8 +1,15 @@
 import { html, component } from "haunted";
 
-const ShoppingList = () => {
+interface Props {
+  ingredients: string[];
+}
+
+const ShoppingList = ({ ingredients }: Props) => {
   return html`<div class="container">
       <h2>Shopping List</h2>
+      <ul>
+        ${ingredients.map((ingredient) => html`<li>${ingredient}</li>`)}
+      </ul>
       <button>Print</button>
     </div>
     ${style}`;

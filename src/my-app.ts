@@ -6,12 +6,21 @@ import { Data } from "./types/types";
 
 const App = () => {
   const [data, setData] = useState<Data | undefined>();
+  const [ingredients, setIngredients] = useState<string[]>([]);
+
+  const handleSetIngredients = (newIngredients: string[]) => {
+    const updatedIngredients = [...ingredients, ...newIngredients];
+    setIngredients(updatedIngredients);
+  };
 
   return html` <div>
       <search-input .setData=${setData}></search-input>
       <div class="column-container">
-        <search-results .data=${data}></search-results>
-        <shopping-list></shopping-list>
+        <search-results
+          .data=${data}
+          .setIngredients=${handleSetIngredients}
+        ></search-results>
+        <shopping-list .ingredients=${ingredients}></shopping-list>
       </div>
     </div>
     ${style}`;

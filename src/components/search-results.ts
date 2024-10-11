@@ -2,7 +2,12 @@ import { html, component } from "haunted";
 import "../components/result-item";
 import { Data } from "../types/types";
 
-const SearchResults = ({ data }: Data) => {
+interface Props {
+  data: Data;
+  setIngredients: (newIngredients: string[]) => void;
+}
+
+const SearchResults = ({ data, setIngredients }: Props) => {
   if (!data) return;
 
   const { drinks } = data;
@@ -13,7 +18,11 @@ const SearchResults = ({ data }: Data) => {
 
   return html`<div class="container">
       ${drinks.map(
-        (drink) => html`<result-item .drink=${drink}></result-item>`
+        (drink) =>
+          html`<result-item
+            .drink=${drink}
+            .setIngredients=${setIngredients}
+          ></result-item>`
       )}
     </div>
     ${style}`;

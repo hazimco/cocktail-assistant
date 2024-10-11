@@ -3,14 +3,26 @@ import { Drink } from "../types/types";
 
 interface Props {
   drink: Drink;
+  setIngredients: (newIngredients: string[]) => void;
 }
 
-const ResultItem = ({ drink }: Props) => {
+const ResultItem = ({ drink, setIngredients }: Props) => {
   const {
     strDrinkThumb: thumbnail,
     strDrink: name,
     strInstructions: instructions,
   } = drink;
+
+  const handleAdd = () => {
+    const ingredients: string[] = [];
+    for (const [key, value] of Object.entries(drink)) {
+      if (key.includes("Ingredient") && value !== null) {
+        ingredients.push(value);
+      }
+    }
+
+    setIngredients(ingredients);
+  };
 
   return html`<div class="result-card">
       <div class="drink-info">
@@ -20,7 +32,7 @@ const ResultItem = ({ drink }: Props) => {
           <p>${instructions}</p>
         </div>
       </div>
-      <button>+</button>
+      <button @click=${handleAdd}>+</button>
     </div>
     ${style}`;
 };

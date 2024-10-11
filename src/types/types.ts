@@ -1,7 +1,6 @@
 export interface Data {
-  data: {
-    drinks: Drink[] | null | string;
-  };
+  drinks: Drink[] | null | string;
+
   // ...search.php?s=hehe ---> drinks: null
   // ...search.php?s=     ---> drinks: "no data found"
 }
