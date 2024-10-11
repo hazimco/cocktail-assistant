@@ -46,7 +46,7 @@ customElements.define("result-item", component(ResultItem));
 const style = html`<style>
   .result-card {
     display: flex;
-    border: 1px solid gray;
+    border: 1px solid #d9d9d9;
     border-radius: 10px;
     background-color: #fff3fa;
     padding: 10px;

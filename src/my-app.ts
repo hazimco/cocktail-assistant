@@ -27,9 +27,11 @@ const App = () => {
           .setIngredients=${handleSetIngredients}
           .setToasterMessage=${setToasterMessage}
         ></search-results>
-        <shopping-list .ingredients=${ingredients}></shopping-list>
+        <div class="right-container">
+          <shopping-list .ingredients=${ingredients}></shopping-list>
+          <my-toaster .message=${toasterMessage}></my-toaster>
+        </div>
       </div>
-      <my-toaster .message=${toasterMessage}></my-toaster>
     </div>
     ${style}`;
 };
@@ -52,7 +54,7 @@ const style = html` <style>
     font-weight: 100;
   }
   .column-container {
-    border: 1px solid #b8b8b8;
+    border: 1px solid #d9d9d9;
     border-radius: 5px;
     background-color: #f7fdff;
     padding: 10px;
@@ -65,7 +67,9 @@ const style = html` <style>
     max-height: 100%;
     overflow-y: auto;
   }
-  shopping-list {
+  .right-container {
     flex: 2;
+    display: flex;
+    flex-direction: column;
   }
 </style>`;

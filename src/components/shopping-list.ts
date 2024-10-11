@@ -10,13 +10,15 @@ const ShoppingList = ({ ingredients }: Props) => {
   };
 
   return html`<div class="container">
-      <h2>Shopping List</h2>
-      ${ingredients.length > 0
-        ? html`<ul>
+      <div class="top-container">
+        <h2>Shopping List</h2>
+        ${ingredients.length > 0
+          ? html`<ul>
               ${ingredients.map((ingredient) => html`<li>${ingredient}</li>`)}
-            </ul>
-            <button @click=${handlePrint}>Print</button> `
-        : ""}
+            </ul> `
+          : ""}
+      </div>
+      <button @click=${handlePrint}>Print</button>
     </div>
     ${style}`;
 };
@@ -27,16 +29,21 @@ customElements.define("shopping-list", component(ShoppingList));
 
 const style = html` <style>
   .container {
-    border: 1px solid gray;
+    border: 1px solid #d9d9d9;
     border-radius: 5px;
     background-color: white;
-    padding: 5px;
+    padding: 10px;
     min-height: 400px;
     max-height: 400px;
-    overflow-y: auto;
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+  }
+  .top-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
   }
   h2 {
     align-self: center;
@@ -44,5 +51,6 @@ const style = html` <style>
   }
   button {
     align-self: center;
+    margin-top: 20px;
   }
 </style>`;
