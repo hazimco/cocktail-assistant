@@ -13,11 +13,14 @@ const ResultItem = ({ drink }: Props) => {
   } = drink;
 
   return html`<div class="result-card">
-      <img src=${thumbnail || ""} />
-      <div>
-        <h2>${name}</h2>
-        <p>${instructions}</p>
+      <div class="drink-info">
+        <img src=${thumbnail || ""} />
+        <div>
+          <h2>${name}</h2>
+          <p>${instructions}</p>
+        </div>
       </div>
+      <button>+</button>
     </div>
     ${style}`;
 };
@@ -32,6 +35,11 @@ const style = html`<style>
     border: 1px solid gray;
     border-radius: 10px;
     padding: 10px;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .drink-info {
+    display: flex;
     gap: 30px;
   }
   img {
@@ -40,5 +48,9 @@ const style = html`<style>
   h2,
   p {
     margin: 0px;
+  }
+  button {
+    padding: 16px;
+    align-self: flex-end;
   }
 </style>`;
