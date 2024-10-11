@@ -6,7 +6,10 @@ interface Props {
 
 const ShoppingList = ({ ingredients }: Props) => {
   const handlePrint = () => {
-    print(); //hmm.. this includes the whole page, not just the shopping list
+    print(); //this opens the browser's print dialog.
+    // Normally, the entire page is displayed in the print dialog, but
+    // in the App component, I hide the app elements and display
+    // another element that only contain the shopping list.
   };
 
   return html`<div class="container">

@@ -16,7 +16,7 @@ const App = () => {
     setIngredients([...updatedIngredients]);
   };
 
-  return html` <div class="container">
+  return html` <div class="container no-print">
       <search-input
         .setData=${setData}
         .setToasterMessage=${setToasterMessage}
@@ -32,6 +32,16 @@ const App = () => {
           <my-toaster .message=${toasterMessage}></my-toaster>
         </div>
       </div>
+    </div>
+
+    <!-- for printing the shopping list -->
+    <div class="print">
+      <h2>Shopping List</h2>
+      ${ingredients.length > 0
+        ? html`<ul>
+            ${ingredients.map((ingredient) => html`<li>${ingredient}</li>`)}
+          </ul> `
+        : ""}
     </div>
     ${style}`;
 };
@@ -71,5 +81,21 @@ const style = html` <style>
     flex: 2;
     display: flex;
     flex-direction: column;
+  }
+
+  /* ====== for printing the shopping list  ====== */
+  .print {
+    display: none;
+  }
+
+  @media print {
+    .no-print {
+      display: none;
+    }
+    .print {
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+    }
   }
 </style>`;
