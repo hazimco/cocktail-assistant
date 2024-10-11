@@ -17,11 +17,15 @@ const App = () => {
   };
 
   return html` <div>
-      <search-input .setData=${setData}></search-input>
+      <search-input
+        .setData=${setData}
+        .setToasterMessage=${setToasterMessage}
+      ></search-input>
       <div class="column-container">
         <search-results
           .data=${data}
           .setIngredients=${handleSetIngredients}
+          .setToasterMessage=${setToasterMessage}
         ></search-results>
         <shopping-list .ingredients=${ingredients}></shopping-list>
       </div>

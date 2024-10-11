@@ -1,12 +1,14 @@
 import { html, component } from "haunted";
 import { Drink } from "../types/types";
+import { StateUpdater } from "../types/hauntedTyped";
 
 interface Props {
   drink: Drink;
   setIngredients: (newIngredients: string[]) => void;
+  setToasterMessage: StateUpdater<string>;
 }
 
-const ResultItem = ({ drink, setIngredients }: Props) => {
+const ResultItem = ({ drink, setIngredients, setToasterMessage }: Props) => {
   const {
     strDrinkThumb: thumbnail,
     strDrink: name,
@@ -20,7 +22,7 @@ const ResultItem = ({ drink, setIngredients }: Props) => {
         ingredients.push(value);
       }
     }
-
+    setToasterMessage("Ingredients added to shopping list.");
     setIngredients(ingredients);
   };
 

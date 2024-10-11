@@ -1,13 +1,15 @@
 import { html, component } from "haunted";
 import "../components/result-item";
 import { Data } from "../types/types";
+import { StateUpdater } from "../types/hauntedTyped";
 
 interface Props {
   data: Data;
   setIngredients: (newIngredients: string[]) => void;
+  setToasterMessage: StateUpdater<string>;
 }
 
-const SearchResults = ({ data, setIngredients }: Props) => {
+const SearchResults = ({ data, setIngredients, setToasterMessage }: Props) => {
   if (!data) return;
 
   const { drinks } = data;
@@ -22,6 +24,7 @@ const SearchResults = ({ data, setIngredients }: Props) => {
           html`<result-item
             .drink=${drink}
             .setIngredients=${setIngredients}
+            .setToasterMessage=${setToasterMessage}
           ></result-item>`
       )}
     </div>

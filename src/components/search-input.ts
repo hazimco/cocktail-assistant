@@ -4,15 +4,21 @@ import { StateUpdater } from "../types/hauntedTyped";
 
 interface Props {
   setData: StateUpdater<Data | undefined>;
+  setToasterMessage: StateUpdater<string>;
 }
 
-const SearchInput = ({ setData }: Props) => {
+const SearchInput = ({ setData, setToasterMessage }: Props) => {
   const [text, setText] = useState("");
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
 
+    setToasterMessage("Searching...");
     const cocktails = await fetchCocktails<Data>(text);
+    cocktails?.drinks
+      ? setToasterMessage("Here are the results.")
+      : setToasterMessage("No results found.");
+
     setData(cocktails);
   };
 

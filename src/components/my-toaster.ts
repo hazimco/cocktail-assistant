@@ -5,6 +5,8 @@ interface Props {
 }
 
 const Toaster = ({ message }: Props) => {
+  if (!message) return;
+
   return html`<div>${message}</div>`;
 };
 
