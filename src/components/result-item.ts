@@ -51,17 +51,18 @@ const style = html`<style>
     background-color: #fff3fa;
     padding: 10px;
     justify-content: space-between;
-    gap: 20px;
+    gap: 1rem;
   }
   .drink-info {
     display: flex;
-    gap: 30px;
+    gap: 1.2rem;
   }
   img {
     height: 100px;
     width: 100px;
     border-radius: 100%;
   }
+
   h2,
   p {
     margin: 0px;
@@ -69,5 +70,12 @@ const style = html`<style>
   button {
     padding: 16px;
     align-self: flex-end;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      height: 50px;
+      width: 50px;
+    }
   }
 </style>`;

@@ -53,12 +53,12 @@ customElements.define("my-app", component(App));
 const style = html` <style>
   .container {
     max-width: 1000px;
-    padding: 10px;
-    margin: 10px;
+    padding: 0.5rem;
+    margin: 0.5rem;
 
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.2rem;
 
     font-family: sans-serif;
     font-weight: 100;
@@ -81,6 +81,18 @@ const style = html` <style>
     flex: 2;
     display: flex;
     flex-direction: column;
+  }
+
+  /* ====== for mobile  ====== */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0;
+      margin: 0;
+    }
+    .column-container {
+      padding: 0;
+      gap: 0;
+    }
   }
 
   /* ====== for printing the shopping list  ====== */
